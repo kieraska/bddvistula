@@ -64,7 +64,7 @@ public class Stepdefs {
         simplePage.plus.click();
         simplePage.six.click();
         simplePage.equals.click();
-        Assert.assertEquals("8", simplePage.result.getText());
+        simplePage.assertResult("8");
     }
 
     @And("I rotate to portrait position")
