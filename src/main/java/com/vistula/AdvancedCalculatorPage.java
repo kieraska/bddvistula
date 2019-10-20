@@ -14,7 +14,7 @@ public class AdvancedCalculatorPage extends SimpleCalculatorPage {
     WebElement rightParenthesis;
 
     @FindBy(id="op_pct")
-    WebElement procent;
+    WebElement percent;
 
     public AdvancedCalculatorPage(AndroidDriver driver) {
         super(driver);
