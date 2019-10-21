@@ -3,6 +3,7 @@ package com.vistula;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.junit.Assert;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -52,5 +53,14 @@ public class SimpleCalculatorPage {
         Assert.assertEquals(expected, result.getText());
     }
 
+    public boolean isElementDisplayed(WebElement element){
+        boolean isDisplayed = false;
+        try {
+            isDisplayed = element.isDisplayed();
+        } catch (NoSuchElementException e) {
+            isDisplayed = false;
+        }
+        return isDisplayed;
+    }
 
 }

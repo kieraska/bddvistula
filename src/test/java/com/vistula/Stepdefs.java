@@ -18,7 +18,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
 
 public class Stepdefs {
 
@@ -55,7 +55,7 @@ public class Stepdefs {
 
     @Then("advanced options are shown")
     public void advanced_options_are_shown() {
-        assertTrue(advancedPage.cosinus.isDisplayed());
+        simplePage.isElementDisplayed(advancedPage.cosinus);
     }
 
     @And("I add two numbers")
@@ -97,6 +97,6 @@ public class Stepdefs {
  //   }
     @Then("advanced options are not shown")
     public void advanced_options_are_not_shown(){
-        advancedPage.assertAdvancedOptionsAreNotShown2();
+        assertFalse(simplePage.isElementDisplayed(advancedPage.cosinus));
     }
 }
