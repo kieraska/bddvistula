@@ -52,7 +52,7 @@ public class Stepdefs {
 
     @Then("advanced options are shown")
     public void advanced_options_are_shown() {
-        simplePage.isElementDisplayed(advancedPage.cosinus);
+        advancedPage.assertThatAdvancedOptionsAreShown();
     }
 
     @And("I add two numbers")
@@ -71,6 +71,6 @@ public class Stepdefs {
 
     @Then("advanced options are not shown")
     public void advanced_options_are_not_shown(){
-        assertFalse(simplePage.isElementDisplayed(advancedPage.cosinus));
+        advancedPage.assertThatAdvancedOptionsAreNotShown();
     }
 }

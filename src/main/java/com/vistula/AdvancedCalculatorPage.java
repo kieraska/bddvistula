@@ -5,6 +5,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.fail;
 
@@ -42,5 +43,13 @@ public class AdvancedCalculatorPage extends SimpleCalculatorPage {
         } catch (NoSuchElementException ex) {
             //expected exception
         }
+    }
+
+    public void assertThatAdvancedOptionsAreNotShown(){
+        assertFalse(isElementDisplayed(cosinus));
+    }
+
+    public void assertThatAdvancedOptionsAreShown(){
+        assertTrue(isElementDisplayed(cosinus));
     }
 }
