@@ -86,13 +86,17 @@ public class Stepdefs {
 //    }
 
     //Second version
+//    @Then("advanced options are not shown")
+//    public void advanced_options_are_not_shown(){
+//        try {
+//            advancedPage.cosinus.isDisplayed();
+//            fail("cosinus is found");
+//        } catch (NoSuchElementException ex) {
+//            //expected exception
+//        }
+ //   }
     @Then("advanced options are not shown")
     public void advanced_options_are_not_shown(){
-        try {
-            advancedPage.cosinus.isDisplayed();
-            fail("cosinus is found");
-        } catch (NoSuchElementException ex) {
-            //expected exception
-        }
+        advancedPage.assertAdvancedOptionsAreNotShown2(advancedPage.cosinus);
     }
 }

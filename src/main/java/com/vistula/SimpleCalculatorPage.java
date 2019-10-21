@@ -51,4 +51,6 @@ public class SimpleCalculatorPage {
     public void assertResult(String expected){
         Assert.assertEquals(expected, result.getText());
     }
+
+
 }
