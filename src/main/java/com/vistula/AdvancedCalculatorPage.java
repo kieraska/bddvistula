@@ -24,21 +24,21 @@ public class AdvancedCalculatorPage extends SimpleCalculatorPage {
         super(driver);
     }
 
-//    public void assertAdvancedOptionsAreNotShown(WebElement button){
+//    public void assertAdvancedOptionsAreNotShown(){
 //        boolean buttonPresent = false;
 //        try {
-//        button.isDisplayed();
+//        cosinus.isDisplayed();
 //        buttonPresent = true;
 //    } catch (NoSuchElementException ex) {
 //        buttonPresent = false;
 //    }
-//        assertFalse(button + " is found", buttonPresent);
+//        assertFalse(cosinus + " is found", buttonPresent);
 //    }
 
-    public void assertAdvancedOptionsAreNotShown2(WebElement button) {
+    public void assertAdvancedOptionsAreNotShown2() {
         try {
-            button.isDisplayed();
-            fail(button + " is found");
+            cosinus.isDisplayed();
+            fail("Advanced button is found:" + cosinus);
         } catch (NoSuchElementException ex) {
             //expected exception
         }

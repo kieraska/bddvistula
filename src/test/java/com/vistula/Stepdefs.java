@@ -97,6 +97,6 @@ public class Stepdefs {
  //   }
     @Then("advanced options are not shown")
     public void advanced_options_are_not_shown(){
-        advancedPage.assertAdvancedOptionsAreNotShown2(advancedPage.cosinus);
+        advancedPage.assertAdvancedOptionsAreNotShown2();
     }
 }
