@@ -9,9 +9,6 @@ import cucumber.api.java.en.When;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
-
-import org.junit.Assert;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -72,29 +69,6 @@ public class Stepdefs {
         driver.rotate(ScreenOrientation.PORTRAIT);
     }
 
-//    // First version
-//    @Then("advanced options are not shown")
-//    public void advanced_options_are_not_shown(){
-//        boolean cosinusPresent = false;
-//        try {
-//            advancedPage.cosinus.isDisplayed();
-//            cosinusPresent = true;
-//        } catch (NoSuchElementException ex) {
-//            cosinusPresent = false;
-//        }
-//        assertFalse("cosinus is found", cosinusPresent);
-//    }
-
-    //Second version
-//    @Then("advanced options are not shown")
-//    public void advanced_options_are_not_shown(){
-//        try {
-//            advancedPage.cosinus.isDisplayed();
-//            fail("cosinus is found");
-//        } catch (NoSuchElementException ex) {
-//            //expected exception
-//        }
- //   }
     @Then("advanced options are not shown")
     public void advanced_options_are_not_shown(){
         assertFalse(simplePage.isElementDisplayed(advancedPage.cosinus));
