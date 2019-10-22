@@ -2,23 +2,18 @@ package com.vistula;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.junit.Assert;
-import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import static org.junit.Assert.assertFalse;
-
-public class Stepdefs {
+public class StepdefsBasicCalculator {
 
     AndroidDriver driver;
     SimpleCalculatorPage simplePage;
@@ -42,38 +37,51 @@ public class Stepdefs {
         driver.quit();
     }
 
-    @Given("I open calculator")
-    public void i_open_calculator() {
-        // should be empty, calculator is opened in @Before
-    }
-
-    @When("I rotate to horizontal position")
-    public void i_rotate_to_horizontal_position() {
-        driver.rotate(ScreenOrientation.LANDSCAPE);
-    }
-
-    @Then("advanced options are shown")
-    public void advanced_options_are_shown() {
-        advancedPage.assertThatAdvancedOptionsAreShown();
-    }
-
-    @And("I add two numbers")
-    public void i_add_two_numbers() {
-        simplePage.two.click();
-        simplePage.plus.click();
-        simplePage.six.click();
-        Assert.assertEquals("2+6", simplePage.formula.getText());
-        simplePage.equals.click();
+    @Then("Numbers should be added")
+    public void numbers_should_be_added() {
         simplePage.assertResult("8");
     }
 
-    @And("I rotate to portrait position")
-    public void i_rotate_to_portrait_position() {
-        driver.rotate(ScreenOrientation.PORTRAIT);
+    @When("I subtract one number from another")
+    public void i_subtract_one_number_from_another() {
+        simplePage.six.click();
+        simplePage.minus.click();
+        simplePage.three.click();
+        Assert.assertEquals("6−3", simplePage.formula.getText());
+        simplePage.equals.click();
     }
 
-    @Then("advanced options are not shown")
-    public void advanced_options_are_not_shown() {
-        advancedPage.assertThatAdvancedOptionsAreNotShown();
+    @Then("Numbers should be subtracted")
+    public void numbers_should_be_subtracted() {
+        simplePage.assertResult("3");
     }
+
+    @When("I multiply one number by another")
+    public void i_multiply_one_number_by_another() {
+        simplePage.two.click();
+        simplePage.multiply.click();
+        simplePage.six.click();
+        Assert.assertEquals("2×6", simplePage.formula.getText());
+        simplePage.result.click();
+    }
+
+    @Then("Numbers should be multiplied")
+    public void numbers_should_be_multiplied() {
+        simplePage.assertResult("12");
+    }
+
+    @When("I divide one number by another")
+    public void i_divide_one_number_by_another() {
+        simplePage.six.click();
+        simplePage.divide.click();
+        simplePage.two.click();
+        Assert.assertEquals("6÷2", simplePage.formula.getText());
+        simplePage.equals.click();
+    }
+
+    @Then("Numbers should be divided")
+    public void numbers_should_be_divided() {
+        simplePage.assertResult("3");
+    }
+
 }

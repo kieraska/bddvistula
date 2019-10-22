@@ -32,6 +32,9 @@ public class SimpleCalculatorPage {
     @FindBy(id="op_mul")
     WebElement multiply;
 
+    @FindBy(id="op_div")
+    WebElement divide;
+
     @FindBy(id="op_sub")
     WebElement minus;
 
@@ -62,5 +65,4 @@ public class SimpleCalculatorPage {
         }
         return isDisplayed;
     }
-
 }
