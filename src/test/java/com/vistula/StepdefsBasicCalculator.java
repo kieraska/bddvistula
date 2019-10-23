@@ -37,11 +37,6 @@ public class StepdefsBasicCalculator {
         driver.quit();
     }
 
-    @Then("Numbers should be added")
-    public void numbers_should_be_added() {
-        simplePage.assertResult("8");
-    }
-
     @When("I subtract one number from another")
     public void i_subtract_one_number_from_another() {
         simplePage.six.click();
@@ -49,11 +44,6 @@ public class StepdefsBasicCalculator {
         simplePage.three.click();
         Assert.assertEquals("6−3", simplePage.formula.getText());
         simplePage.equals.click();
-    }
-
-    @Then("Numbers should be subtracted")
-    public void numbers_should_be_subtracted() {
-        simplePage.assertResult("3");
     }
 
     @When("I multiply one number by another")
@@ -65,11 +55,6 @@ public class StepdefsBasicCalculator {
         simplePage.result.click();
     }
 
-    @Then("Numbers should be multiplied")
-    public void numbers_should_be_multiplied() {
-        simplePage.assertResult("12");
-    }
-
     @When("I divide one number by another")
     public void i_divide_one_number_by_another() {
         simplePage.six.click();
@@ -79,9 +64,8 @@ public class StepdefsBasicCalculator {
         simplePage.equals.click();
     }
 
-    @Then("Numbers should be divided")
-    public void numbers_should_be_divided() {
-        simplePage.assertResult("3");
+    @Then("Result should be {string}")
+    public void resultShouldBe(String expectedResult) {
+        simplePage.assertResult(expectedResult);
     }
-
 }
