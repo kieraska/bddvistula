@@ -2,6 +2,7 @@ package com.vistula;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.appium.java_client.android.AndroidDriver;
@@ -67,5 +68,46 @@ public class StepdefsBasicCalculator {
     @Then("Result should be {string}")
     public void resultShouldBe(String expectedResult) {
         simplePage.assertResult(expectedResult);
+    }
+
+    @Then("Result should be {int}")
+    public void resultShouldBe(Integer expectedResult) {
+        simplePage.assertResult(expectedResult.toString());
+    }
+
+    @When("I enter {int}")
+    public void iEnterOutput(Integer input) {
+        if (input == 0) {
+            simplePage.zero.click();
+        }
+        else if (input == 1) {
+            simplePage.one.click();
+        } else if (input == 2) {
+            simplePage.two.click();
+        } else if (input == 3) {
+            simplePage.three.click();
+        } else if (input == 4) {
+            simplePage.four.click();
+        } else if (input == 5) {
+            simplePage.five.click();
+        } else if (input == 6) {
+            simplePage.six.click();
+        } else if (input == 7) {
+            simplePage.seven.click();
+        } else if (input == 8) {
+            simplePage.eight.click();
+        } else if (input == 9) {
+            simplePage.nine.click();
+        }
+    }
+
+    @And("I press divide")
+    public void iPressDivide() {
+        simplePage.divide.click();
+    }
+
+    @And("I press equals")
+    public void iPressEquals() {
+        simplePage.equals.click();
     }
 }

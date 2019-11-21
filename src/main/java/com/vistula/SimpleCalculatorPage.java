@@ -11,11 +11,27 @@ import org.openqa.selenium.support.PageFactory;
 public class SimpleCalculatorPage {
 
     protected AndroidDriver driver;
+
+    @FindBy(id="digit_1")
+    WebElement one;
+
     @FindBy(id="digit_2")
     WebElement two;
 
+    @FindBy(id="digit_4")
+    WebElement four;
+
     @FindBy(id="digit_6")
     WebElement six;
+
+    @FindBy(id="digit_7")
+    WebElement seven;
+
+    @FindBy(id="digit_8")
+    WebElement eight;
+
+    @FindBy(id="digit_9")
+    WebElement nine;
 
     @FindBy(id="op_add")
     WebElement plus;
